@@ -1,0 +1,167 @@
+.nav-bar {
+    position: sticky;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 0 10px;
+    z-index: 9999;
+}
+
+.nav-bar__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px 30px;
+    color: var(--color-white);
+    background-color: var(--color-orange);
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    border: 2px solid var(--color-orange-dark);
+}
+
+.nav-bar__logo:before, .nav-bar__logo:after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 30%;
+    bottom: -15%;
+    right: -2px;
+    transform: skewY(12deg);
+    background-color: var(--color-orange);
+    border: 2px solid var(--color-orange-dark);
+    border-top: none;
+    border-left: none;
+}
+.nav-bar__logo:before {
+    left: -1px;
+    transform: rotateY(180deg) skewY(12deg);;
+}
+
+.nav-bar__logo-pizza {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.nav-bar__logo-kma {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.nav-bar__contact-info{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: var(--color-gray);
+    padding: 10px 25px;
+    width: 100%;
+}
+
+.nav-bar__contact-info-top {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 0 0 10px 0;
+    border-bottom: 2px solid var(--color-gray);
+}
+.nav-bar__contact-info-top > div {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+    font-weight: 500;
+}
+
+.nav-bar__contact-info-tel {
+    font-size: 28px;
+}
+
+.nav-bar__contact-info-time{
+    font-size: 14px;
+}
+
+.nav-bar__contact-info-free-delivery{
+    font-size: 20px;
+}
+
+.nav-bar__contact-info-bottom {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    padding: 0 0 8px 0;
+}
+
+.nav-bar__contact-info-category{
+    color: var(--color-white);
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.nav-bar__contact-info-bottom .nav-bar__contact-info-login-button {
+    display: none;
+}
+
+@media screen and (max-width: 1500px){
+    .nav-bar__contact-info-free-delivery {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1100px){
+    .nav-bar__contact-info-time {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 842px) {
+    .nav-bar__contact-info-category{
+        display: none;
+    }
+
+    .nav-bar__contact-info-top .nav-bar__contact-info-login-button{
+        display: none;
+    }
+
+    .nav-bar__contact-info-bottom .nav-bar__contact-info-login-button {
+        display: block;
+        margin: 0 0 0 auto;
+    }
+
+    .nav-bar__contact-info-tel {
+        font-size: 14px;
+    }
+
+    .nav-bar__contact-info {
+        padding: 5px 10px;
+    }
+
+    .nav-bar__logo {padding: 4px 20px;}
+    .nav-bar__contact-info-top {
+        padding-bottom: 3px;
+    }
+
+    .nav-bar__logo:before, .nav-bar__logo:after {
+        height: 20%;
+        bottom: -15%;
+    }
+
+    .nav-bar__logo-pizza {
+        font-size: 16px;
+    }
+
+    .nav-bar__logo-kma {
+        font-size: 20px;
+    }
+
+    .nav-bar__logo:after {
+        right: -0.9%;
+    }
+
+    .nav-bar__contact-info-bottom{
+        padding: 0;
+    }
+
+}

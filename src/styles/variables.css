@@ -1,0 +1,19 @@
+:root {
+    --color-orange: #de8b3a;
+    --color-orange-light: #e2a84e;
+    --color-orange-dark: #b46d29;
+    --color-white: #fff;
+    --color-white-2: #fffff6;
+    --color-gray: #b9b9b9;
+    --color-red: #b34035;
+    --color-red-light: #ca6860;
+    --color-green: #569448;
+    --color-green-light: #78b66b;
+    --color-black: #000;
+    --color-black-light: #252525;
+
+    --orange-gradient: linear-gradient(180deg, var(--color-orange-light) 0%, var(--color-orange) 100%);
+    --red-gradient: linear-gradient(180deg, var(--color-red-light) 0%, var(--color-red) 100%);
+    --green-gradient: linear-gradient(180deg, var(--color-green-light) 0%, var(--color-green) 100%);
+    --gray-gradient: linear-gradient(180deg, var(--color-white) 0%, var(--color-gray) 100%);
+}

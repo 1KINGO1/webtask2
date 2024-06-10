@@ -1,0 +1,67 @@
+.badge {
+    position: fixed;
+    bottom: 0;
+    left: 10px;
+    background-color: var(--color-orange);
+    max-width: 120px;
+    padding: 10px 15px;
+    border: 2px solid var(--color-orange-dark);
+}
+
+.badge:before, .badge:after {
+    content: "";
+    position: absolute;
+    width: 51%;
+    height: 15%;
+    top: -11%;
+    right: -2px;
+    transform: skewY(-12deg);
+    background-color: var(--color-orange);
+    border: 2px solid var(--color-orange-dark);
+    border-right: none;
+    border-bottom: none;
+}
+.badge:before {
+    transform: skewY(12deg);
+    left: -1px;
+}
+
+.badge:after{
+    border-left: none;
+    border-right: 2px solid var(--color-orange-dark);
+}
+
+.badge__message {
+    color: var(--color-white);
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+
+    padding-bottom: 10px;
+    border-bottom: 2px dashed var(--color-gray);
+}
+
+.badge__sale {
+    padding-top: 10px;
+    color: var(--color-white);
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+}
+
+@media screen and (max-width: 1100px){
+    .badge {
+        max-width: 100px;
+        padding: 8px 12px;
+    }
+
+    .badge__message {
+        font-size: 16px;
+    }
+
+    .badge__sale {
+        font-size: 16px;
+    }
+}

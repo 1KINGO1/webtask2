@@ -1,0 +1,50 @@
+.button {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    font-size: 14px;
+    padding: 0.6em 1em 0.5em;
+    color: var(--color-white);
+    border-radius: 5px;
+    outline: none;
+    border: 2px solid var(--color-orange);
+
+    background: var(--color-orange-light);
+    background: var(--orange-gradient);
+
+    transition: .2s ease-in-out all;
+
+    cursor: pointer;
+}
+
+.button:hover {
+
+}
+
+
+.checkbox{
+
+}
+
+.checkbox label {
+    display: block;
+    padding: 12px 15px;
+    background-color: transparent;
+    color: var(--color-orange);
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+
+    transition: .1s ease-in-out all;
+}
+
+.checkbox input:checked + label {
+    background-color: var(--color-orange);
+    color: var(--color-white);
+}
+
+.checkbox > input {
+    width: 0;
+    height: 0;
+    display: none;
+}

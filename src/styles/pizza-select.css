@@ -1,0 +1,183 @@
+.pizza-select {
+    background-color: var(--color-white-2);
+    position: relative;
+    /*flex-grow: 1;*/
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+
+    /*box-shadow: 30px 0 12px var(--color-black);*/
+
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+}
+
+.pizza-select::-webkit-scrollbar{
+    display: none;
+}
+
+.pizza-select__content-wrapper {
+    display: grid;
+    max-width: 1600px;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: minmax(auto, 1fr);
+    padding: 25px;
+    gap: 25px;
+}
+
+.pizza {
+    background-color: var(--color-white);
+    border: 2px solid var(--color-gray);
+    border-radius: 5px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pizza.new, .pizza.popular{
+    position: relative;
+}
+
+.pizza.new:after, .pizza.popular:after {
+    content: "Нова";
+    position: absolute;
+    background-color: var(--color-red);
+    padding: 0.4em 0.6em;
+    border-radius: 5px;
+    border: 1px solid var(--color-gray);
+    right: -0.6em;
+    top: -0.6em;
+    font-weight: 700;
+    color: var(--color-white);
+}
+
+.pizza.popular:after{
+    content: "Популярна";
+    background-color: var(--color-green);
+}
+
+.pizza__image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pizza__image > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.pizza__title {
+    color: var(--color-orange-dark);
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.pizza__info {
+
+}
+
+.pizza__ingredients {
+    margin: 5px 0 0 0;
+}
+
+.pizza__type {
+    color: var(--color-gray);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.pizza__prices{
+    margin: auto 0 0 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    gap: 10px;
+}
+
+.pizza__price{
+    margin: 0 auto;
+}
+
+.pizza__price span {
+    display: block;
+    text-align: center;
+}
+
+.pizza__price-diameter {
+    font-size: 16px;
+}
+.pizza__price-diameter:before {
+    content: "⌀";
+    position: relative;
+    padding: 0 4px 0 0;
+    font-size: 1.6em;
+    bottom: -0.07em;
+}
+
+.pizza__price-buy-button {
+
+}
+
+.pizza__price-sum {
+    margin: 0.4em 0 0.25em 0;
+    font-size: 35px;
+    font-weight: 500;
+    color: var(--color-black-light);
+}
+.pizza__price-sum::after{
+    content: "грн.";
+    position: relative;
+    font-size: 0.4em;
+    margin-top: -0.24em;
+    display: block;
+}
+
+.pizza__price-weight {
+    font-size: 16px;
+}
+
+.pizza-select__filter{
+    padding: 15px 0 10px;
+}
+
+.pizza-select__filter-title {
+    font-size: 36px;
+    text-align: center;
+    font-weight: 500;
+    color: var(--color-black-light);
+}
+.pizza-select__filter-title span {
+    font-size: 0.4em;
+    color: var(--color-white);
+    background-color: var(--color-orange);
+    border-radius: 100%;
+    padding: 0.2em 0.6em;
+    vertical-align: middle;
+}
+.pizza-select__navigation{
+    margin: 20px 0 5px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+@media screen and (max-width: 1300px){
+    .pizza-select__content-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 1050px){
+    .pizza-select__content-wrapper {
+        max-width: 400px;
+        grid-template-columns: 1fr;
+    }
+
+    .pizza__image > img {
+        width: 60%;
+    }
+}
