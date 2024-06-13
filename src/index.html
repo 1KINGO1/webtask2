@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="./styles/ui.css">
     <link rel="stylesheet" href="./styles/badge.css">
 
+    <script src="./scripts/main.js" type="module"></script>
+
     <title>JS-pizza ×</title>
 </head>
 <body>
@@ -51,11 +53,11 @@
             </div>
         </nav>
         <div class="pizza-select__filter">
-            <p class="pizza-select__filter-title">
+            <p class="pizza-select__filter-title" id="filter-title">
                 Усі піци
                 <span>8</span>
             </p>
-            <div class="pizza-select__navigation">
+            <div class="pizza-select__navigation" id="filters">
                 <div class="checkbox">
                     <input type="checkbox" id="all" checked>
                     <label for="all">
@@ -63,617 +65,53 @@
                     </label>
                 </div>
                 <div class="checkbox">
-                    <input type="checkbox" id="with-meat">
-                    <label for="with-meat">
+                    <input type="checkbox" id="meat-filter">
+                    <label for="meat-filter">
                         М'ясні
                     </label>
                 </div>
                 <div class="checkbox">
-                    <input type="checkbox" id="with-ananas">
-                    <label for="with-ananas">
+                    <input type="checkbox" id="pineapple-filter">
+                    <label for="pineapple-filter">
                         З ананасами
                     </label>
                 </div>
                 <div class="checkbox">
-                    <input type="checkbox" id="with-mushrooms">
-                    <label for="with-mushrooms">
+                    <input type="checkbox" id="mushrooms-filter">
+                    <label for="mushrooms-filter">
                         З грибами
                     </label>
                 </div>
                 <div class="checkbox">
-                    <input type="checkbox" id="with-seafood">
-                    <label for="with-seafood">
+                    <input type="checkbox" id="seafood-filter">
+                    <label for="seafood-filter">
                         З морепродуктами
                     </label>
                 </div>
                 <div class="checkbox">
-                    <input type="checkbox" id="vega">
-                    <label for="vega">
+                    <input type="checkbox" id="vega-filter">
+                    <label for="vega-filter">
                         Вега
                     </label>
                 </div>
             </div>
         </div>
-        <div class="pizza-select__content-wrapper">
-            <div class="pizza new">
-                <div class="pizza__image">
-                    <img src="./assets/pizza_carbonara.webp" alt="Піца імпреза">
-                </div>
-                <div class="pizza__info">
-                    <p class="pizza__title">Імпреза</p>
-                    <span class="pizza__type">М'ясна піца</span>
-                    <p class="pizza__ingredients">Базилік, салямі, куриця, сир, моцарелла, сир рокфорд, ананаси, томатна
-                        паста, петрушка</p>
-                </div>
-                <div class="pizza__prices">
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">30</span>
-                        <span class="pizza__price-weight">370</span>
-                        <span class="pizza__price-sum">99</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">40</span>
-                        <span class="pizza__price-weight">660</span>
-                        <span class="pizza__price-sum">169</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                </div>
-            </div>
-            <div class="pizza popular">
-                <div class="pizza__image">
-                    <img src="./assets/pizza_carbonara.webp" alt="Піца імпреза">
-                </div>
-                <div class="pizza__info">
-                    <p class="pizza__title">Імпреза</p>
-                    <span class="pizza__type">М'ясна піца</span>
-                    <p class="pizza__ingredients">Базилік, салямі, куриця, сир, моцарелла, сир рокфорд, ананаси, томатна
-                        паста, петрушка</p>
-                </div>
-                <div class="pizza__prices">
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">30</span>
-                        <span class="pizza__price-weight">370</span>
-                        <span class="pizza__price-sum">99</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">40</span>
-                        <span class="pizza__price-weight">660</span>
-                        <span class="pizza__price-sum">169</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                </div>
-            </div>
-            <div class="pizza">
-                <div class="pizza__image">
-                    <img src="./assets/pizza_carbonara.webp" alt="Піца імпреза">
-                </div>
-                <div class="pizza__info">
-                    <p class="pizza__title">Імпреза</p>
-                    <span class="pizza__type">М'ясна піца</span>
-                    <p class="pizza__ingredients">Базилік, салямі, куриця, сир, моцарелла, сир рокфорд, ананаси, томатна
-                        паста, петрушка</p>
-                </div>
-                <div class="pizza__prices">
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">30</span>
-                        <span class="pizza__price-weight">370</span>
-                        <span class="pizza__price-sum">99</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                </div>
-            </div>
-            <div class="pizza">
-                <div class="pizza__image">
-                    <img src="./assets/pizza_carbonara.webp" alt="Піца імпреза">
-                </div>
-                <div class="pizza__info">
-                    <p class="pizza__title">Імпреза</p>
-                    <span class="pizza__type">М'ясна піца</span>
-                    <p class="pizza__ingredients">Базилік, салямі, куриця, сир, моцарелла, сир рокфорд, ананаси, томатна
-                        паста, петрушка, авіаів, авіаів, шинка, хавка, 123</p>
-                </div>
-                <div class="pizza__prices">
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">30</span>
-                        <span class="pizza__price-weight">370</span>
-                        <span class="pizza__price-sum">99</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">40</span>
-                        <span class="pizza__price-weight">660</span>
-                        <span class="pizza__price-sum">169</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                </div>
-            </div>
-            <div class="pizza new">
-                <div class="pizza__image">
-                    <img src="./assets/pizza_carbonara.webp" alt="Піца імпреза">
-                </div>
-                <div class="pizza__info">
-                    <p class="pizza__title">Імпреза</p>
-                    <span class="pizza__type">М'ясна піца</span>
-                    <p class="pizza__ingredients">Базилік, салямі, куриця, сир, моцарелла, сир рокфорд, ананаси, томатна
-                        паста, петрушка</p>
-                </div>
-                <div class="pizza__prices">
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">30</span>
-                        <span class="pizza__price-weight">370</span>
-                        <span class="pizza__price-sum">99</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">40</span>
-                        <span class="pizza__price-weight">660</span>
-                        <span class="pizza__price-sum">169</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                </div>
-            </div>
-            <div class="pizza popular">
-                <div class="pizza__image">
-                    <img src="./assets/pizza_carbonara.webp" alt="Піца імпреза">
-                </div>
-                <div class="pizza__info">
-                    <p class="pizza__title">Імпреза</p>
-                    <span class="pizza__type">М'ясна піца</span>
-                    <p class="pizza__ingredients">Базилік, салямі, куриця, сир, моцарелла, сир рокфорд, ананаси, томатна
-                        паста, петрушка</p>
-                </div>
-                <div class="pizza__prices">
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">30</span>
-                        <span class="pizza__price-weight">370</span>
-                        <span class="pizza__price-sum">99</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">40</span>
-                        <span class="pizza__price-weight">660</span>
-                        <span class="pizza__price-sum">169</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                </div>
-            </div>
-            <div class="pizza">
-                <div class="pizza__image">
-                    <img src="./assets/pizza_carbonara.webp" alt="Піца імпреза">
-                </div>
-                <div class="pizza__info">
-                    <p class="pizza__title">Імпреза</p>
-                    <span class="pizza__type">М'ясна піца</span>
-                    <p class="pizza__ingredients">Базилік, салямі, куриця, сир, моцарелла, сир рокфорд, ананаси, томатна
-                        паста, петрушка</p>
-                </div>
-                <div class="pizza__prices">
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">30</span>
-                        <span class="pizza__price-weight">370</span>
-                        <span class="pizza__price-sum">99</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">40</span>
-                        <span class="pizza__price-weight">660</span>
-                        <span class="pizza__price-sum">169</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                </div>
-            </div>
-            <div class="pizza">
-                <div class="pizza__image">
-                    <img src="./assets/pizza_carbonara.webp" alt="Піца імпреза">
-                </div>
-                <div class="pizza__info">
-                    <p class="pizza__title">Імпреза</p>
-                    <span class="pizza__type">М'ясна піца</span>
-                    <p class="pizza__ingredients">Базилік, салямі, куриця, сир, моцарелла, сир рокфорд, ананаси, томатна
-                        паста, петрушка</p>
-                </div>
-                <div class="pizza__prices">
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">30</span>
-                        <span class="pizza__price-weight">370</span>
-                        <span class="pizza__price-sum">99</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">40</span>
-                        <span class="pizza__price-weight">660</span>
-                        <span class="pizza__price-sum">169</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                </div>
-            </div>
-            <div class="pizza new">
-                <div class="pizza__image">
-                    <img src="./assets/pizza_carbonara.webp" alt="Піца імпреза">
-                </div>
-                <div class="pizza__info">
-                    <p class="pizza__title">Імпреза</p>
-                    <span class="pizza__type">М'ясна піца</span>
-                    <p class="pizza__ingredients">Базилік, салямі, куриця, сир, моцарелла, сир рокфорд, ананаси, томатна
-                        паста, петрушка</p>
-                </div>
-                <div class="pizza__prices">
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">30</span>
-                        <span class="pizza__price-weight">370</span>
-                        <span class="pizza__price-sum">99</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">40</span>
-                        <span class="pizza__price-weight">660</span>
-                        <span class="pizza__price-sum">169</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                </div>
-            </div>
-            <div class="pizza popular">
-                <div class="pizza__image">
-                    <img src="./assets/pizza_carbonara.webp" alt="Піца імпреза">
-                </div>
-                <div class="pizza__info">
-                    <p class="pizza__title">Імпреза</p>
-                    <span class="pizza__type">М'ясна піца</span>
-                    <p class="pizza__ingredients">Базилік, салямі, куриця, сир, моцарелла, сир рокфорд, ананаси, томатна
-                        паста, петрушка</p>
-                </div>
-                <div class="pizza__prices">
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">30</span>
-                        <span class="pizza__price-weight">370</span>
-                        <span class="pizza__price-sum">99</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">40</span>
-                        <span class="pizza__price-weight">660</span>
-                        <span class="pizza__price-sum">169</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                </div>
-            </div>
-            <div class="pizza">
-                <div class="pizza__image">
-                    <img src="./assets/pizza_carbonara.webp" alt="Піца імпреза">
-                </div>
-                <div class="pizza__info">
-                    <p class="pizza__title">Імпреза</p>
-                    <span class="pizza__type">М'ясна піца</span>
-                    <p class="pizza__ingredients">Базилік, салямі, куриця, сир, моцарелла, сир рокфорд, ананаси, томатна
-                        паста, петрушка</p>
-                </div>
-                <div class="pizza__prices">
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">30</span>
-                        <span class="pizza__price-weight">370</span>
-                        <span class="pizza__price-sum">99</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">40</span>
-                        <span class="pizza__price-weight">660</span>
-                        <span class="pizza__price-sum">169</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                </div>
-            </div>
-            <div class="pizza">
-                <div class="pizza__image">
-                    <img src="./assets/pizza_carbonara.webp" alt="Піца імпреза">
-                </div>
-                <div class="pizza__info">
-                    <p class="pizza__title">Імпреза</p>
-                    <span class="pizza__type">М'ясна піца</span>
-                    <p class="pizza__ingredients">Базилік, салямі, куриця, сир, моцарелла, сир рокфорд, ананаси, томатна
-                        паста, петрушка</p>
-                </div>
-                <div class="pizza__prices">
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">30</span>
-                        <span class="pizza__price-weight">370</span>
-                        <span class="pizza__price-sum">99</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">40</span>
-                        <span class="pizza__price-weight">660</span>
-                        <span class="pizza__price-sum">169</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                </div>
-            </div>
-            <div class="pizza new">
-                <div class="pizza__image">
-                    <img src="./assets/pizza_carbonara.webp" alt="Піца імпреза">
-                </div>
-                <div class="pizza__info">
-                    <p class="pizza__title">Імпреза</p>
-                    <span class="pizza__type">М'ясна піца</span>
-                    <p class="pizza__ingredients">Базилік, салямі, куриця, сир, моцарелла, сир рокфорд, ананаси, томатна
-                        паста, петрушка</p>
-                </div>
-                <div class="pizza__prices">
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">30</span>
-                        <span class="pizza__price-weight">370</span>
-                        <span class="pizza__price-sum">99</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">40</span>
-                        <span class="pizza__price-weight">660</span>
-                        <span class="pizza__price-sum">169</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                </div>
-            </div>
-            <div class="pizza popular">
-                <div class="pizza__image">
-                    <img src="./assets/pizza_carbonara.webp" alt="Піца імпреза">
-                </div>
-                <div class="pizza__info">
-                    <p class="pizza__title">Імпреза</p>
-                    <span class="pizza__type">М'ясна піца</span>
-                    <p class="pizza__ingredients">Базилік, салямі, куриця, сир, моцарелла, сир рокфорд, ананаси, томатна
-                        паста, петрушка</p>
-                </div>
-                <div class="pizza__prices">
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">30</span>
-                        <span class="pizza__price-weight">370</span>
-                        <span class="pizza__price-sum">99</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">40</span>
-                        <span class="pizza__price-weight">660</span>
-                        <span class="pizza__price-sum">169</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                </div>
-            </div>
-            <div class="pizza">
-                <div class="pizza__image">
-                    <img src="./assets/pizza_carbonara.webp" alt="Піца імпреза">
-                </div>
-                <div class="pizza__info">
-                    <p class="pizza__title">Імпреза</p>
-                    <span class="pizza__type">М'ясна піца</span>
-                    <p class="pizza__ingredients">Базилік, салямі, куриця, сир, моцарелла, сир рокфорд, ананаси, томатна
-                        паста, петрушка</p>
-                </div>
-                <div class="pizza__prices">
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">30</span>
-                        <span class="pizza__price-weight">370</span>
-                        <span class="pizza__price-sum">99</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">40</span>
-                        <span class="pizza__price-weight">660</span>
-                        <span class="pizza__price-sum">169</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                </div>
-            </div>
-            <div class="pizza">
-                <div class="pizza__image">
-                    <img src="./assets/pizza_carbonara.webp" alt="Піца імпреза">
-                </div>
-                <div class="pizza__info">
-                    <p class="pizza__title">Імпреза</p>
-                    <span class="pizza__type">М'ясна піца</span>
-                    <p class="pizza__ingredients">Базилік, салямі, куриця, сир, моцарелла, сир рокфорд, ананаси, томатна
-                        паста, петрушка</p>
-                </div>
-                <div class="pizza__prices">
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">30</span>
-                        <span class="pizza__price-weight">370</span>
-                        <span class="pizza__price-sum">99</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">40</span>
-                        <span class="pizza__price-weight">660</span>
-                        <span class="pizza__price-sum">169</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                </div>
-            </div>
-            <div class="pizza new">
-                <div class="pizza__image">
-                    <img src="./assets/pizza_carbonara.webp" alt="Піца імпреза">
-                </div>
-                <div class="pizza__info">
-                    <p class="pizza__title">Імпреза</p>
-                    <span class="pizza__type">М'ясна піца</span>
-                    <p class="pizza__ingredients">Базилік, салямі, куриця, сир, моцарелла, сир рокфорд, ананаси, томатна
-                        паста, петрушка</p>
-                </div>
-                <div class="pizza__prices">
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">30</span>
-                        <span class="pizza__price-weight">370</span>
-                        <span class="pizza__price-sum">99</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">40</span>
-                        <span class="pizza__price-weight">660</span>
-                        <span class="pizza__price-sum">169</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                </div>
-            </div>
-            <div class="pizza popular">
-                <div class="pizza__image">
-                    <img src="./assets/pizza_carbonara.webp" alt="Піца імпреза">
-                </div>
-                <div class="pizza__info">
-                    <p class="pizza__title">Імпреза</p>
-                    <span class="pizza__type">М'ясна піца</span>
-                    <p class="pizza__ingredients">Базилік, салямі, куриця, сир, моцарелла, сир рокфорд, ананаси, томатна
-                        паста, петрушка</p>
-                </div>
-                <div class="pizza__prices">
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">30</span>
-                        <span class="pizza__price-weight">370</span>
-                        <span class="pizza__price-sum">99</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">40</span>
-                        <span class="pizza__price-weight">660</span>
-                        <span class="pizza__price-sum">169</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                </div>
-            </div>
-            <div class="pizza">
-                <div class="pizza__image">
-                    <img src="./assets/pizza_carbonara.webp" alt="Піца імпреза">
-                </div>
-                <div class="pizza__info">
-                    <p class="pizza__title">Імпреза</p>
-                    <span class="pizza__type">М'ясна піца</span>
-                    <p class="pizza__ingredients">Базилік, салямі, куриця, сир, моцарелла, сир рокфорд, ананаси, томатна
-                        паста, петрушка</p>
-                </div>
-                <div class="pizza__prices">
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">30</span>
-                        <span class="pizza__price-weight">370</span>
-                        <span class="pizza__price-sum">99</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">40</span>
-                        <span class="pizza__price-weight">660</span>
-                        <span class="pizza__price-sum">169</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                </div>
-            </div>
-            <div class="pizza">
-                <div class="pizza__image">
-                    <img src="./assets/pizza_carbonara.webp" alt="Піца імпреза">
-                </div>
-                <div class="pizza__info">
-                    <p class="pizza__title">Імпреза</p>
-                    <span class="pizza__type">М'ясна піца</span>
-                    <p class="pizza__ingredients">Базилік, салямі, куриця, сир, моцарелла, сир рокфорд, ананаси, томатна
-                        паста, петрушка</p>
-                </div>
-                <div class="pizza__prices">
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">30</span>
-                        <span class="pizza__price-weight">370</span>
-                        <span class="pizza__price-sum">99</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                    <div class="pizza__price">
-                        <span class="pizza__price-diameter">40</span>
-                        <span class="pizza__price-weight">660</span>
-                        <span class="pizza__price-sum">169</span>
-                        <button class="button pizza__price-buy-button">Купити</button>
-                    </div>
-                </div>
-            </div>
+        <div class="pizza-select__content-wrapper" id="pizza-select-wrapper">
+
         </div>
     </section>
     <section class="summary">
         <div class="summary__top">
-            <p>Замовлення <span>3</span></p>
-            <button class="summary__clear-button">Очистити замовлення</button>
+            <p id="cart-title">Замовлення <span>3</span></p>
+            <button class="summary__clear-button" id="clear-cart">Очистити замовлення</button>
         </div>
-        <div class="summary__selected-pizza-wrapper">
-            <div class="selected-pizza" style="background-image: url('./assets/pizza_carbonara.webp')">
-                <p class="selected-pizza__title">
-                    BBQ (Мала)
-                </p>
-                <div class="selected-pizza__details">
-                    <p class="selected-pizza__diameter">30</p>
-                    <p class="selected-pizza__weight">460</p>
-                </div>
-                <div class="selected-pizza__bottom-panel">
-                    <p class="selected-pizza__price">556</p>
-                    <div class="selected-pizza__control">
-                        <button class="selected-pizza__decrease">-</button>
-                        <span class="selected-pizza__count">4</span>
-                        <button class="selected-pizza__increase">+</button>
-                        <button class="selected-pizza__remove">×</button>
-                    </div>
-                </div>
-            </div>
-            <div class="selected-pizza" style="background-image: url('./assets/pizza_carbonara.webp')">
-                <p class="selected-pizza__title">
-                    BBQ (Мала)
-                </p>
-                <div class="selected-pizza__details">
-                    <p class="selected-pizza__diameter">30</p>
-                    <p class="selected-pizza__weight">460</p>
-                </div>
-                <div class="selected-pizza__bottom-panel">
-                    <p class="selected-pizza__price">556</p>
-                    <div class="selected-pizza__control">
-                        <button class="selected-pizza__decrease">-</button>
-                        <span class="selected-pizza__count">4</span>
-                        <button class="selected-pizza__increase">+</button>
-                        <button class="selected-pizza__remove">×</button>
-                    </div>
-                </div>
-            </div>
-            <div class="selected-pizza" style="background-image: url('./assets/pizza_carbonara.webp')">
-                <p class="selected-pizza__title">
-                    BBQ (Мала)
-                </p>
-                <div class="selected-pizza__details">
-                    <p class="selected-pizza__diameter">30</p>
-                    <p class="selected-pizza__weight">460</p>
-                </div>
-                <div class="selected-pizza__bottom-panel">
-                    <p class="selected-pizza__price">556</p>
-                    <div class="selected-pizza__control">
-                        <button class="selected-pizza__decrease">-</button>
-                        <span class="selected-pizza__count">4</span>
-                        <button class="selected-pizza__increase">+</button>
-                        <button class="selected-pizza__remove">×</button>
-                    </div>
-                </div>
-            </div>
-            <div class="selected-pizza" style="background-image: url('./assets/pizza_carbonara.webp')">
-                <p class="selected-pizza__title">
-                    BBQ (Мала)
-                </p>
-                <div class="selected-pizza__details">
-                    <p class="selected-pizza__diameter">30</p>
-                    <p class="selected-pizza__weight">460</p>
-                </div>
-                <div class="selected-pizza__bottom-panel">
-                    <p class="selected-pizza__price">556</p>
-                    <div class="selected-pizza__control">
-                        <button class="selected-pizza__decrease">-</button>
-                        <span class="selected-pizza__count">4</span>
-                        <button class="selected-pizza__increase">+</button>
-                        <button class="selected-pizza__remove">×</button>
-                    </div>
-                </div>
-            </div>
+        <div class="summary__selected-pizza-wrapper" id="cart">
+
         </div>
         <div class="summary__process">
             <div class="summary__process-top">
                 <p class="summary__process-title">Сума замолення</p>
-                <p class="summary__process-sum">924 грн</p>
+                <p class="summary__process-sum" id="cart-sum">924 грн</p>
             </div>
             <button class="button summary__buy-button">Замовити</button>
         </div>
