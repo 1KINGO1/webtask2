@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ua">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="./styles/variables.css">
+	<link rel="stylesheet" href="./styles/global.css">
+	<link rel="stylesheet" href="./styles/pizza-select.css">
+	<link rel="stylesheet" href="./styles/summary.css">
+	<link rel="stylesheet" href="./styles/navbar.css">
+	<link rel="stylesheet" href="./styles/ui.css">
+	<link rel="stylesheet" href="./styles/badge.css">
+
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+	<script src="./scripts/report.js" type="module"></script>
+
+	<title>JS-pizza Report</title>
+</head>
+<body>
+<main id="root">
+	<section class="pizza-select">
+		<nav class="nav-bar">
+			<div class="nav-bar__logo">
+				<p class="nav-bar__logo-pizza">
+					PIZZA
+				</p>
+				<p class="nav-bar__logo-kma">
+					KMA
+				</p>
+			</div>
+			<div class="nav-bar__contact-info">
+				<div class="nav-bar__contact-info-top">
+					<div>
+						<p class="nav-bar__contact-info-tel">
+							(044) 222 5 222
+						</p>
+						<p class="nav-bar__contact-info-time">
+							24 години/ 7 днів на тиждень
+						</p>
+						<p class="nav-bar__contact-info-free-delivery">
+							Безкоштовна доставка піци
+						</p>
+					</div>
+					<a href="/login" class="button nav-bar__contact-info-login-button">Ввійти</a>
+				</div>
+				<div class="nav-bar__contact-info-bottom">
+					<p class="nav-bar__contact-info-category">
+						Піца
+					</p>
+					<a href="/login" class="button nav-bar__contact-info-login-button">Ввійти</a>
+				</div>
+			</div>
+		</nav>
+		<div class="report-wrapper">
+			<div>
+				<div id="chart1"></div>
+				<div id="chart2"></div>
+			</div>
+			<div>
+				<div id="chart3"></div>
+				<div id="chart4"></div>
+			</div>
+		</div>
+	</section>
+	<section class="summary">
+		<div class="summary__process">
+			<a class="button summary__buy-button" href="index.html">Назад</a>
+		</div>
+	</section>
+</main>
+</body>
+</html>

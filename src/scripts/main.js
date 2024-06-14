@@ -1,4 +1,4 @@
-import pizzaList, {getPizzaById} from "./pizza-list.js";
+import pizzaList, {getPizzaById, init as pizzaInit} from "./pizza-list.js";
 
 const pizzaSelectWrapper = document.getElementById("pizza-select-wrapper");
 const cartWrapper = document.getElementById("cart");
@@ -7,6 +7,9 @@ const clearCartButton = document.getElementById("clear-cart");
 const cartTitle = document.getElementById("cart-title");
 const cartSum = document.getElementById("cart-sum");
 const filters = document.getElementById("filters");
+
+const orderButton = document.getElementById("order-button");
+const reportButton = document.getElementById("report-button");
 
 const filterIds = {
     "М’ясна піца": "meat-filter",
@@ -36,13 +39,20 @@ let appliedFilters = ["all"];
 
 
 
-function init() {
+async function init() {
+    await pizzaInit();
+
     renderPizzaCountElement();
     renderCartTitleElement();
     pizzaList.forEach(renderPizzaItem);
     cart.forEach(renderPizzaCartElement);
 
     renderCartSum();
+    renderCartButtons();
+
+    reportButton.addEventListener("click", () => {
+        window.location.href = "report.html";
+    })
 
     addFiltersEventListener();
     clearCartButton.addEventListener("click", () => {
@@ -82,7 +92,6 @@ function addFiltersEventListener(){
         applyFilters();
     });
 }
-
 function applyFilters(){
     let pizzaCount = 0;
 
@@ -178,17 +187,24 @@ function addPizzaToCart(pizzaToAdd){
 
     renderPizzaCartElement(cartItem);
     renderCartSum();
+    renderCartButtons();
     saveCartToLocalStorage();
 }
 function removePizzaFromCart(cartItem){
     cart = cart.filter(cartI => cartI !== cartItem);
+    renderCartButtons();
     saveCartToLocalStorage();
 }
 
-function saveCartToLocalStorage(){
+function renderCartButtons(){
+    orderButton.disabled = cart.length === 0;
+    reportButton.disabled = cart.length === 0;
+}
+
+export function saveCartToLocalStorage(){
     localStorage.setItem("cart", JSON.stringify(cart));
 }
-function getCartFromLocalStorage(){
+export function getCartFromLocalStorage(){
     const storageString = localStorage.getItem("cart")
     return storageString ? JSON.parse(storageString) : [];
 }
@@ -283,6 +299,7 @@ function clearCart(){
 
     renderCartTitleElement();
     renderCartSum();
+    renderCartButtons();
 
     saveCartToLocalStorage();
 }

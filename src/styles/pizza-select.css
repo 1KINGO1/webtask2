@@ -181,3 +181,24 @@
         width: 60%;
     }
 }
+
+.report-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+
+    > div {
+        display: flex;
+        gap: 20px;
+
+        > div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--color-white-2);
+            border: 2px solid var(--color-orange-dark);
+        }
+    }
+}

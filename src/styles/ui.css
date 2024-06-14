@@ -21,6 +21,12 @@
 
 }
 
+.button:disabled {
+    background: var(--color-gray);
+    border: 2px solid var(--color-gray);
+    cursor: not-allowed;
+}
+
 
 .checkbox{
 
