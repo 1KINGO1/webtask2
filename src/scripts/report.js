@@ -1,6 +1,6 @@
-import {getPizzaById, init as initPizza} from './pizza-list.js';
+import {getPizzaById, init as initPizzaList} from './pizza-list.js';
 
-export function getCartFromLocalStorage(){
+function getCartFromLocalStorage(){
 	const storageString = localStorage.getItem("cart")
 	return storageString ? JSON.parse(storageString) : [];
 }
@@ -11,7 +11,7 @@ google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(init);
 
 async function init() {
-	await initPizza();
+	await initPizzaList();
 
 	cartList = getCartFromLocalStorage().map(cartItem => {
 
@@ -25,6 +25,8 @@ async function init() {
 
 	drawPizzaAmountChart();
 	drawPizzaSummaryPriceChart();
+
+	initPivotTable();
 }
 
 const chartConfig = {
@@ -65,8 +67,6 @@ function drawPizzaAmountChart(){
 
 function drawPizzaSummaryPriceChart(){
 
-	console.log(cartList);
-
 	const list = cartList
 		.map(cartItem => [cartItem.pizza.title, cartItem.pizza[cartItem.type].price, cartItem.amount])
 		.reduce((acc, [name, price, amount]) => {
@@ -87,4 +87,27 @@ function drawPizzaSummaryPriceChart(){
 
 	let chart = new google.visualization.PieChart(document.getElementById('chart2'));
 	chart.draw(data, chartConfig);
+}
+
+function initPivotTable(){
+	const pivot = new WebDataRocks({
+		container: "#pivot-table",
+		toolbar: true,
+		report: {
+			dataSource: {
+				data: cartList.map(cartItem => ({
+					"Pizza Name": cartItem.pizza.title,
+					"Type": cartItem.type === "small_size" ? "Small" : "Big",
+					"Amount": cartItem.amount,
+					"Price": cartItem.pizza[cartItem.type].price * cartItem.amount
+				})),
+				rows: [
+					{ uniqueName: "Pizza Name" },
+				],
+				columns: [
+					{ uniqueName: "Type" }
+				],
+			}
+		}
+	});
 }

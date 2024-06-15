@@ -1,4 +1,4 @@
-import pizzaList, {getPizzaById, init as pizzaInit} from "./pizza-list.js";
+import pizzaList, {getPizzaById, init as pizzaInitList} from "./pizza-list.js";
 
 const pizzaSelectWrapper = document.getElementById("pizza-select-wrapper");
 const cartWrapper = document.getElementById("cart");
@@ -39,8 +39,10 @@ let appliedFilters = ["all"];
 
 
 
+
+
 async function init() {
-    await pizzaInit();
+    await pizzaInitList();
 
     renderPizzaCountElement();
     renderCartTitleElement();
@@ -60,6 +62,10 @@ async function init() {
     });
 }
 init();
+
+
+
+
 
 function addFiltersEventListener(){
     filters.addEventListener("change", (e) => {
@@ -201,14 +207,6 @@ function renderCartButtons(){
     reportButton.disabled = cart.length === 0;
 }
 
-export function saveCartToLocalStorage(){
-    localStorage.setItem("cart", JSON.stringify(cart));
-}
-export function getCartFromLocalStorage(){
-    const storageString = localStorage.getItem("cart")
-    return storageString ? JSON.parse(storageString) : [];
-}
-
 function renderPizzaCartElement(cartItem){
     const pizza = getPizzaById(cartItem.id);
     if (!pizza) return;
@@ -302,4 +300,12 @@ function clearCart(){
     renderCartButtons();
 
     saveCartToLocalStorage();
+}
+
+function saveCartToLocalStorage(){
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+function getCartFromLocalStorage(){
+    const storageString = localStorage.getItem("cart")
+    return storageString ? JSON.parse(storageString) : [];
 }
