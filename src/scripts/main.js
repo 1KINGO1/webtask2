@@ -44,7 +44,7 @@ let appliedFilters = ["all"];
 async function init() {
     await pizzaInitList();
 
-    renderPizzaCountElement();
+    renderPizzaCountElement(pizzaList.length);
     renderCartTitleElement();
     pizzaList.forEach(renderPizzaItem);
     cart.forEach(renderPizzaCartElement);
@@ -114,10 +114,12 @@ function applyFilters(){
 
         element.style.display = "none";
     }
+
+    renderPizzaCountElement(pizzaCount);
 }
 
-function renderPizzaCountElement(){
-    filterTitle.innerHTML = `Усі піци <span>${pizzaList.length}</span>`
+function renderPizzaCountElement(length){
+    filterTitle.innerHTML = `Усі піци <span>${length}</span>`
 }
 function renderCartTitleElement(){
     cartTitle.innerHTML = `Замовлення <span>${cart.length}</span>`;
